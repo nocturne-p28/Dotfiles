@@ -1,0 +1,57 @@
+{
+  "layer": "top",
+  "position": "top",
+  "height": 28,
+  "spacing": 0,
+
+  // On sway, use "sway/workspaces" and "sway/window" instead
+  "modules-left": ["hyprland/workspaces", "hyprland/window"],
+  "modules-center": ["clock"],
+  "modules-right": ["pulseaudio", "network", "cpu", "memory", "battery", "tray"],
+
+  "hyprland/workspaces": {
+    "format": "{id}",
+    "on-click": "activate"
+  },
+
+  "hyprland/window": {
+    "format": "{title}",
+    "max-length": 50,
+    "separate-outputs": true
+  },
+
+  "clock": {
+    "format": "{:%a %d %b  %H:%M}",
+    "tooltip-format": "<tt>{calendar}</tt>"
+  },
+
+  "pulseaudio": {
+    "format": "vol {volume}%",
+    "format-muted": "muted",
+    "on-click": "pavucontrol",
+    "scroll-step": 5
+  },
+  
+  "network": {
+    "format-wifi": "Internet:connected",
+    "format-ethernet": "Internet:connected",
+    "format-linked": "Internet:connected",
+    "format-disconnected": "Internet:disconnected",
+    "tooltip-format": "{ifname}: {ipaddr}"
+  },
+
+  "cpu": {
+    "format": "cpu {usage}%",
+    "interval": 5
+  },
+
+  "memory": {
+    "format": "mem {percentage}%",
+    "interval": 10
+  },
+
+  "tray": {
+    "icon-size": 14,
+    "spacing": 8
+  }
+}
