@@ -1,0 +1,116 @@
+
+/* Modus Vivendi (dark) */
+@define-color bg-main     #000000;
+@define-color fg-main     #ffffff;
+@define-color bg-dim      #1e1e1e;
+@define-color fg-dim      #989898;
+@define-color bg-active   #535353;
+@define-color bg-inactive #303030;
+@define-color border      #646464;
+@define-color red         #ff5f59;
+@define-color yellow      #d0bc00;
+@define-color green       #44bc44;
+@define-color blue        #2fafff;
+@define-color cyan        #00d3d0;
+
+/* Modus Operandi (light): swap the block above for this one
+@define-color bg-main     #ffffff;
+@define-color fg-main     #000000;
+@define-color bg-dim      #f2f2f2;
+@define-color fg-dim      #595959;
+@define-color bg-active   #c4c4c4;
+@define-color bg-inactive #e0e0e0;
+@define-color border      #9f9f9f;
+@define-color red         #a60000;
+@define-color yellow      #6f5500;
+@define-color green       #006800;
+@define-color blue        #0031a9;
+@define-color cyan        #005e8b;
+*/
+
+* {
+  border: none;
+  border-radius: 0;
+  font-family: "Iosevka", "JetBrains Mono", monospace;
+  font-size: 13px;
+  min-height: 0;
+}
+
+window#waybar {
+  background: @bg-main;
+  color: @fg-main;
+  border-bottom: 1px solid @border;
+}
+
+tooltip {
+  background: @bg-dim;
+  border: 1px solid @border;
+}
+
+tooltip label {
+  color: @fg-main;
+}
+
+/* Workspaces */
+#workspaces button {
+  padding: 0 10px;
+  color: @fg-dim;
+  background: transparent;
+  box-shadow: none;
+  text-shadow: none;
+}
+
+#workspaces button:hover {
+  background: @bg-inactive;
+  color: @fg-main;
+}
+
+#workspaces button.active,
+#workspaces button.focused {
+  background: @bg-active;
+  color: @fg-main;
+}
+
+#workspaces button.urgent {
+  background: @red;
+  color: @bg-main;
+}
+
+/* Modules */
+#window,
+#clock,
+#pulseaudio,
+#network,
+#cpu,
+#memory,
+#battery,
+#tray {
+  padding: 0 10px;
+  color: @fg-dim;
+}
+
+#window {
+  color: @fg-main;
+}
+
+#clock {
+  color: @fg-main;
+}
+
+#pulseaudio {
+  color: @blue;
+}
+
+#network {
+  color: @cyan;
+}
+
+#pulseaudio.muted,
+#network.disconnected {
+  color: @yellow;
+}
+
+/* Hide empty window title */
+window#waybar.empty #window {
+  padding: 0;
+}
